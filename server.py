@@ -1,5 +1,5 @@
-from dotenv import load_dotenv
-load_dotenv()
+# from dotenv import load_dotenv
+# load_dotenv()
 
 from fastapi import FastAPI, APIRouter, HTTPException, Request, Depends, BackgroundTasks
 from starlette.middleware.cors import CORSMiddleware
@@ -21,6 +21,14 @@ from typing import List, Optional, Any
 from datetime import datetime, timezone, timedelta
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
+
+MONGO_URL = os.getenv("MONGO_URL")
+JWT_SECRET = os.getenv("JWT_SECRET")
+DB_NAME = os.getenv("DB_NAME")
+CORS_ORIGINS = os.getenv("CORS_ORIGINS", "*") 
+ADMIN_EMAIL = os.getenv("ADMIN_EMAIL")
+ADMIN_PASSWORD = os.getenv("ADMIN_PASSWORD")
+
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
